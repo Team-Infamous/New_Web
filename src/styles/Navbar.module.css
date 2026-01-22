@@ -1,0 +1,140 @@
+@font-face {
+    font-family: "28 Days Later";
+    src: url('../static-fonts/28 Days Later.ttf');
+}
+.homenavbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    height: 64px;
+    padding: 0 2%;
+    margin: auto;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    transition:all 300ms ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .homenavbar {
+        left: 0;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    height: 60px;
+    padding: 0 2%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    transition:all 300ms ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        left: 0;
+    }
+}
+
+.navbarscroll {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    transition:all 300ms ease-in-out;
+}
+
+.navleft {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.logoContainer {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    font-family: "28 Days Later";
+    /* border: 1px solid white; */
+}
+
+.logoLink {
+    font-size: 2.2rem;
+    margin: 4px 0 0 0;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "28 Days Later";
+    font-weight: 500;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.navItemsContainer {
+    display: flex;
+    gap: 4px;
+    margin: 0;
+    align-items: center;
+}
+
+.navItem {
+    color: #a1a1a1;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    background: transparent;
+}
+
+.navItem:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.navright {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    /* border: 1px solid white; */
+}
+
+@media(max-width:1280px){
+    .homenavbar{
+        padding: 0 3%;
+    }
+}
+
+@media(max-width:768px) {
+    .navItemsContainer {
+        display: none;
+    }
+    .navright{
+        gap: 10px;
+    }
+}
+
+.toggle{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

@@ -1,0 +1,129 @@
+/**
+ * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ * You can also import the same styles from "@vidstack/react/player/styles/default/captions.css"
+ *
+ * <Captions className="vds-captions" />
+ * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ */
+
+.captions {
+  /* Recommended settings in the WebVTT spec (https://www.w3.org/TR/webvtt1). */
+  --cue-color: var(--media-cue-color, white);
+  --cue-bg-color: var(--media-cue-bg, rgba(0, 0, 0, 0.7));
+  --cue-font-size: clamp(13px, 2.8vw, 18px);
+  --cue-line-height: calc(var(--cue-font-size) * 1.4);
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  contain: layout style;
+  margin: var(--overlay-padding);
+  font-size: 18px;
+  pointer-events: none;
+  user-select: none;
+  word-spacing: normal;
+  word-break: break-word;
+  bottom: 8px;
+  transition: bottom 0.15s linear;
+}
+
+.captions[data-dir='rtl'] [data-part='cue-display'] {
+  direction: rtl;
+}
+
+.captions[aria-hidden='true'] {
+  display: none;
+}
+
+/*************************************************************************************************
+ * Cue Display
+ *************************************************************************************************/
+
+/*
+* Most of the cue styles are set automatically by our [media-captions](https://github.com/vidstack/media-captions)
+* library via CSS variables. They are inferred from the VTT, SRT, or SSA file cue settings. You're
+* free to ignore them and style the captions as desired, but we don't recommend it unless the
+* captions file contains no cue settings. Otherwise, you might be breaking accessibility.
+*/
+.captions [data-part='cue-display'] {
+  position: absolute;
+  direction: ltr;
+  overflow: visible;
+  contain: content;
+  top: var(--cue-top);
+  left: var(--cue-left);
+  right: var(--cue-right);
+  bottom: var(--cue-bottom);
+  width: var(--cue-width, auto);
+  height: var(--cue-height, auto);
+  transform: var(--cue-transform);
+  text-align: var(--cue-text-align);
+  writing-mode: var(--cue-writing-mode, unset);
+  white-space: pre-line;
+  unicode-bidi: plaintext;
+  min-width: min-content;
+  min-height: unset;
+}
+
+.captions [data-part='cue'] {
+  display: inline-block;
+  contain: content;
+  border-radius: 2px;
+  backdrop-filter: blur(8px);
+  padding: 6px 10px;
+  line-height: 1.3;
+  background-color: var(--cue-bg-color);
+  color: var(--cue-color);
+  white-space: pre-wrap;
+  outline: var(--cue-outline);
+  text-shadow: var(--cue-text-shadow);
+}
+
+.captions [data-part='cue-display'][data-vertical] [data-part='cue'] {
+  padding: 10px 6px;
+}
+
+/* Hide captions when interacting with time slider. */
+:global(.player[data-preview]) .captions {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Push captions up when controls are visible.
+:global(.player[data-controls]) .captions {
+  bottom: 78px;
+} */
+
+/* Mobile optimizations */
+/* @media (max-width: 768px) {
+  .captions {
+    font-size: 14px;
+  }
+
+  .captions [data-part='cue'] {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    padding: 5px 8px;
+  }
+} */
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .captions {
+    font-size: 10px;
+  }
+
+  .captions [data-part='cue'] {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    padding: 4px 7px;
+  }
+}
+
+/* Mobile landscape optimization */
+@media screen and (orientation: landscape) and (max-width: 950px) {
+  .captions [data-part='cue'] {
+    font-size: 22px !important;
+    line-height: 1.4 !important;
+    padding: 8px 12px;
+  }
+}
