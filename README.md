@@ -10,6 +10,7 @@
   </p>
 </div>
 
+
 # About the Project
 
 Experience ad-free anime streaming with seamless AniList integration for progress tracking. Powered by modern APIs including Consumet and Anify, Luna delivers a smooth viewing experience. Built with Next.js 14, NextUI, MongoDB, and Redis for optimal performance.
