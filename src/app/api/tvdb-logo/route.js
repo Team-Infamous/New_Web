@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 import { NextResponse } from 'next/server';
 import { fetchSeriesLogoUrl as fetchTvdbLogo } from '@/lib/tvdb';
 import { fetchSeriesLogoUrl as fetchFanartLogo } from '@/lib/fanart';
